@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Socks Specialty Coffee - About Us</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .brand-showcase {
+            background: linear-gradient(135deg, #f9cb15 0%, #f8e92a 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(44, 44, 44, 0.03) 10px,
+                rgba(44, 44, 44, 0.03) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .brand-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-showcase {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .main-logo {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .brand-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .brand-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(44, 44, 44, 0.1);
+            transition: all 0.3s ease;
+            border: 3px solid #f9cb15;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(44, 44, 44, 0.2);
+        }
+        
+        .sticker {
+            display: inline-block;
+            background: #f9cb15;
+            color: #2c2c2c;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 0.5rem;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(249, 203, 21, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .sticker:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(249, 203, 21, 0.5);
+        }
+        
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.2);
+        }
+        
+        .color-swatch::after {
+            content: attr(data-color);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .design-elements {
+            background: #2c2c2c;
+            color: #f8e92a;
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(249, 203, 21, 0.5) 35px, rgba(249, 203, 21, 0.5) 70px);
+        }
+        
+        .design-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .coffee-bean {
+            display: inline-block;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .typography-showcase {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .font-sample {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .brand-story {
+            background: linear-gradient(135deg, #f8e92a 0%, #f9cb15 100%);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .story-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: #2c2c2c;
+            border-radius: 20px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f9cb15;
+            font-size: 4rem;
+            box-shadow: 0 15px 35px rgba(44, 44, 44, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .main-logo {
+                font-size: 2.5rem;
+            }
+            
+            .brand-elements {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .color-swatch {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" data-aos="fade-down">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Socks Coffee</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-ar="Home" data-en="Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#menu" class="nav-link" data-ar="Menu" data-en="Menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-ar="About" data-en="About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link" data-ar="Contact" data-en="Contact">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="lang-switcher" id="langSwitcher" title="Toggle Language">
+                    <span class="lang-icon">??</span>
+                    <span class="lang-text">EN</span>
+                </button>
+                <button class="theme-switcher" id="themeSwitcher" title="Toggle Theme">
+                    <span class="theme-icon">??</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Brand Showcase Section -->
+    <section class="brand-showcase">
+        <div class="container brand-content">
+            <div class="logo-showcase" data-aos="zoom-in">
+                <h1 class="main-logo" data-ar="Socks Specialty Coffee" data-en="Socks Specialty Coffee">Socks Specialty Coffee</h1>
+                <p class="tagline" data-ar="Premium Coffee Experience" data-en="Premium Coffee Experience">Premium Coffee Experience</p>
+            </div>
+
+            <div class="brand-elements">
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 data-ar="Brand Identity" data-en="Brand Identity">Brand Identity</h3>
+                    <p data-ar="Our brand represents quality, warmth, and exceptional coffee experiences" data-en="Our brand represents quality, warmth, and exceptional coffee experiences">Our brand represents quality, warmth, and exceptional coffee experiences</p>
+                    <div class="stickers">
+                        <span class="sticker" data-ar="Premium Quality" data-en="Premium Quality">Premium Quality</span>
+                        <span class="sticker" data-ar="Artisan Coffee" data-en="Artisan Coffee">Artisan Coffee</span>
+                        <span class="sticker" data-ar="Cozy Atmosphere" data-en="Cozy Atmosphere">Cozy Atmosphere</span>
+                    </div>
+                </div>
+
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 data-ar="Color Palette" data-en="Color Palette">Color Palette</h3>
+                    <p data-ar="Our signature colors reflect warmth and energy" data-en="Our signature colors reflect warmth and energy">Our signature colors reflect warmth and energy</p>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background-color: #f9cb15;" data-color="#f9cb15"></div>
+                        <div class="color-swatch" style="background-color: #f8e92a;" data-color="#f8e92a"></div>
+                        <div class="color-swatch" style="background-color: #2c2c2c;" data-color="#2c2c2c"></div>
+                    </div>
+                </div>
+
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 data-ar="Design Elements" data-en="Design Elements">Design Elements</h3>
+                    <p data-ar="Modern, clean, and inviting design language" data-en="Modern, clean, and inviting design language">Modern, clean, and inviting design language</p>
+                    <div class="stickers">
+                        <span class="sticker" data-ar="Minimalist" data-en="Minimalist">Minimalist</span>
+                        <span class="sticker" data-ar="Contemporary" data-en="Contemporary">Contemporary</span>
+                        <span class="sticker" data-ar="Welcoming" data-en="Welcoming">Welcoming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section class="typography-showcase">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-ar="Typography" data-en="Typography">Typography</h2>
+            <div class="font-sample" data-aos="fade-up" data-aos-delay="100">
+                <h3 data-ar="Cairo Font Family" data-en="Cairo Font Family">Cairo Font Family</h3>
+                <p data-ar="Clean, modern, and highly readable Arabic typography" data-en="Clean, modern, and highly readable Arabic typography">Clean, modern, and highly readable Arabic typography</p>
+                <div style="font-size: 3rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0;" data-ar="Aa Bb Cc" data-en="Aa Bb Cc">Aa Bb Cc</div>
+                <div style="font-size: 2rem; font-weight: 400; color: #f9cb15; margin: 1rem 0;" data-ar="Light Weight" data-en="Light Weight">Light Weight</div>
+                <div style="font-size: 2rem; font-weight: 600; color: #2c2c2c; margin: 1rem 0;" data-ar="Semi Bold" data-en="Semi Bold">Semi Bold</div>
+                <div style="font-size: 2rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0;" data-ar="Bold Weight" data-en="Bold Weight">Bold Weight</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Elements Section -->
+    <section class="design-elements">
+        <div class="pattern-overlay"></div>
+        <div class="container design-content">
+            <h2 class="section-title" data-aos="fade-up" data-ar="Design Elements" data-en="Design Elements">Design Elements</h2>
+            <div class="brand-elements">
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="100" style="background: rgba(248, 233, 42, 0.1); border-color: #f8e92a;">
+                    <h3 style="color: #f8e92a;" data-ar="Coffee Icons" data-en="Coffee Icons">Coffee Icons</h3>
+                    <div style="font-size: 3rem; margin: 1rem 0;">
+                        <span class="coffee-bean">??</span>
+                        <span class="coffee-bean" style="animation-delay: 0.5s;">??</span>
+                        <span class="coffee-bean" style="animation-delay: 1s;">??</span>
+                        <span class="coffee-bean" style="animation-delay: 1.5s;">??</span>
+                    </div>
+                    <p style="color: #f8e92a;" data-ar="Custom coffee-themed illustrations" data-en="Custom coffee-themed illustrations">Custom coffee-themed illustrations</p>
+                </div>
+
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="200" style="background: rgba(248, 233, 42, 0.1); border-color: #f8e92a;">
+                    <h3 style="color: #f8e92a;" data-ar="Pattern Designs" data-en="Pattern Designs">Pattern Designs</h3>
+                    <div style="height: 80px; background: repeating-linear-gradient(45deg, #f9cb15, #f9cb15 10px, transparent 10px, transparent 20px); border-radius: 10px; margin: 1rem 0;"></div>
+                    <p style="color: #f8e92a;" data-ar="Geometric patterns inspired by coffee culture" data-en="Geometric patterns inspired by coffee culture">Geometric patterns inspired by coffee culture</p>
+                </div>
+
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="300" style="background: rgba(248, 233, 42, 0.1); border-color: #f8e92a;">
+                    <h3 style="color: #f8e92a;" data-ar="Brand Stickers" data-en="Brand Stickers">Brand Stickers</h3>
+                    <div class="stickers">
+                        <span class="sticker" style="background: #f9cb15; color: #2c2c2c;" data-ar="Fresh Coffee" data-en="Fresh Coffee">Fresh Coffee</span>
+                        <span class="sticker" style="background: #f8e92a; color: #2c2c2c;" data-ar="Premium Blend" data-en="Premium Blend">Premium Blend</span>
+                        <span class="sticker" style="background: #f9cb15; color: #2c2c2c;" data-ar="Artisan Roast" data-en="Artisan Roast">Artisan Roast</span>
+                        <span class="sticker" style="background: #f8e92a; color: #2c2c2c;" data-ar="Specialty Coffee" data-en="Specialty Coffee">Specialty Coffee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="brand-story">
+        <div class="container">
+            <div class="story-content">
+                <h2 class="section-title" data-aos="fade-up" data-ar="Our Story" data-en="Our Story">Our Story</h2>
+                <div class="story-image" data-aos="zoom-in" data-aos-delay="200">
+                    <span>??</span>
+                </div>
+                <p data-aos="fade-up" data-aos-delay="300" data-ar="Socks Specialty Coffee was born from a passion for exceptional coffee and creating memorable experiences. Our journey began with a simple vision: to bring the world's finest coffee beans to our community and create a space where people could connect, work, and enjoy the perfect cup of coffee." data-en="Socks Specialty Coffee was born from a passion for exceptional coffee and creating memorable experiences. Our journey began with a simple vision: to bring the world's finest coffee beans to our community and create a space where people could connect, work, and enjoy the perfect cup of coffee.">
+                    Socks Specialty Coffee was born from a passion for exceptional coffee and creating memorable experiences. Our journey began with a simple vision: to bring the world's finest coffee beans to our community and create a space where people could connect, work, and enjoy the perfect cup of coffee.
+                </p>
+                <div class="stickers" data-aos="fade-up" data-aos-delay="400">
+                    <span class="sticker" data-ar="Est. 2024" data-en="Est. 2024">Est. 2024</span>
+                    <span class="sticker" data-ar="Cairo, Egypt" data-en="Cairo, Egypt">Cairo, Egypt</span>
+                    <span class="sticker" data-ar="Heart & Soul" data-en="Heart & Soul">Heart & Soul</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-ar="&copy; 2024 Socks Specialty Coffee. All rights reserved." data-en="&copy; 2024 Socks Specialty Coffee. All rights reserved.">&copy; 2024 Socks Specialty Coffee. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
