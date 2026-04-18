@@ -1,36 +1,34 @@
-// 1. تشغيل الأنميشن
-AOS.init({ duration: 1000, once: true });
+AOS.init({ duration: 800, once: true });
 
-// 2. إدارة اللغة
 let currentLang = 'ar';
-const langBtn = document.getElementById('langSwitcher');
+let currentTheme = 'light';
 
-langBtn.addEventListener('click', () => {
+// التبديل بين اللغات
+const langSwitcher = document.getElementById('langSwitcher');
+langSwitcher.addEventListener('click', () => {
     currentLang = currentLang === 'ar' ? 'en' : 'ar';
-    langBtn.innerText = currentLang === 'ar' ? 'EN' : 'AR';
+    langSwitcher.querySelector('.lang-text').textContent = currentLang === 'ar' ? 'EN' : 'AR';
     
-    // تغيير اتجاه الصفحة والنصوص
-    const htmlTag = document.documentElement;
-    const translatableElements = document.querySelectorAll('[data-ar]');
+    const elements = document.querySelectorAll('[data-ar]');
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLang;
 
-    if (currentLang === 'en') {
-        htmlTag.dir = "ltr";
-        htmlTag.lang = "en";
-        translatableElements.forEach(el => {
-            el.innerText = el.getAttribute('data-en');
-        });
-    } else {
-        htmlTag.dir = "rtl";
-        htmlTag.lang = "ar";
-        translatableElements.forEach(el => {
-            el.innerText = el.getAttribute('data-ar');
-        });
-    }
+    elements.forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
+    });
 });
 
-// 3. إدارة الدارك مود
-const themeBtn = document.getElementById('themeSwitcher');
-themeBtn.addEventListener('click', () => {
+// التبديل بين الثيمات
+const themeSwitcher = document.getElementById('themeSwitcher');
+themeSwitcher.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
-    themeBtn.innerText = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+    const isDark = document.body.classList.contains('dark-theme');
+    themeSwitcher.querySelector('.theme-icon').textContent = isDark ? '☀️' : '🌙';
+});
+
+// Hamburger Menu
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
 });
