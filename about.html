@@ -1,278 +1,704 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Socks Specialty Coffee</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>قصتنا • Socks Specialty Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #F9CB15;
+      --yellow-light: #FDE95A;
+      --yellow-dark: #D4A800;
+      --dark: #1E1A0E;
+      --dark2: #2C2712;
+      --white: #FFFDF0;
+      --text: #1E1A0E;
+      --card-bg: #FFFDF0;
+      --section-bg: #FFFDF0;
+      --nav-bg: #1E1A0E;
+      --muted: #666;
+    }
+    body.dark {
+      --white: #1E1A0E;
+      --text: #FDE95A;
+      --card-bg: #2C2712;
+      --section-bg: #1E1A0E;
+      --nav-bg: #0D0C07;
+      --muted: #aaa;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--section-bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* STICKERS */
+    .sticker-layer {
+      position: fixed; top:0; left:0; width:100%; height:100%;
+      pointer-events:none; z-index:0; overflow:hidden;
+    }
+    .sticker {
+      position:absolute; opacity:0.1;
+      animation: floatUp linear infinite;
+      user-select:none;
+    }
+    @keyframes floatUp {
+      0%   { transform:translateY(110vh) rotate(0deg); opacity:0; }
+      5%   { opacity:0.1; }
+      95%  { opacity:0.1; }
+      100% { transform:translateY(-20vh) rotate(360deg); opacity:0; }
+    }
+
+    /* NAV */
+    .navbar {
+      position:fixed; top:0; width:100%; z-index:1000;
+      background:var(--nav-bg);
+      padding:14px 20px;
+      display:flex; align-items:center; justify-content:space-between;
+      box-shadow:0 2px 24px rgba(0,0,0,0.18);
+      transition:background 0.4s;
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo-icon {
+      width:40px; height:40px;
+      background:var(--yellow); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px;
+      animation:pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100%{box-shadow:0 0 0 3px #fff2, 0 4px 12px rgba(249,203,21,0.4);}
+      50%    {box-shadow:0 0 0 8px #fff1, 0 4px 20px rgba(249,203,21,0.6);}
+    }
+    .nav-logo h2 { color:#fff; font-family:'Fredoka One',cursive; font-size:1.3rem; }
+    .nav-logo h2 span { color:var(--yellow); }
+    .nav-right { display:flex; align-items:center; gap:10px; }
+    .btn-icon {
+      background:#fff1; border:2px solid var(--yellow);
+      border-radius:50px; padding:7px 13px;
+      cursor:pointer; font-size:0.85rem; font-weight:700;
+      color:var(--yellow); font-family:'Cairo',sans-serif;
+      transition:all 0.25s; display:flex; align-items:center; gap:5px;
+    }
+    .btn-icon:hover { background:var(--yellow); color:var(--dark); }
+    .back-btn {
+      display:flex; align-items:center; gap:6px;
+      color:#ccc; text-decoration:none;
+      font-size:0.88rem; font-weight:600;
+      padding:7px 14px; border-radius:50px;
+      border:1.5px solid rgba(255,255,255,0.15);
+      transition:all 0.25s;
+    }
+    .back-btn:hover { background:var(--yellow); color:var(--dark); border-color:var(--yellow); }
+
+    /* HERO */
+    .about-hero {
+      position:relative; z-index:1;
+      min-height:60svh;
+      background:linear-gradient(150deg, #1E1A0E 0%, #2C2712 60%, #1E1A0E 100%);
+      display:flex; align-items:center; justify-content:center;
+      padding:100px 24px 60px;
+      text-align:center; overflow:hidden;
+    }
+    .about-hero-content { position:relative; z-index:2; max-width:580px; }
+    .about-hero-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(249,203,21,0.12);
+      border:1.5px solid var(--yellow);
+      border-radius:50px; padding:7px 18px;
+      font-size:0.82rem; color:var(--yellow); font-weight:600;
+      margin-bottom:20px;
+      animation:fadeUp 0.8s ease both;
+    }
+    .about-hero h1 {
+      font-family:'Fredoka One',cursive;
+      font-size:clamp(2.2rem, 10vw, 4.5rem);
+      color:#fff; line-height:1.1; margin-bottom:16px;
+      animation:fadeUp 0.9s 0.1s ease both;
+    }
+    .about-hero h1 span { color:var(--yellow); }
+    .about-hero p {
+      color:rgba(255,255,255,0.72);
+      font-size:clamp(0.95rem, 3vw, 1.15rem);
+      line-height:1.8;
+      animation:fadeUp 1s 0.2s ease both;
+    }
+    @keyframes fadeUp {
+      from{opacity:0;transform:translateY(28px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    /* SECTIONS */
+    .page { position:relative; z-index:1; }
+
+    /* STAT CARDS */
+    .stats-section {
+      background:var(--yellow);
+      padding:50px 20px;
+    }
+    .stats-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+      gap:16px; max-width:700px; margin:0 auto;
+    }
+    .stat-card {
+      background:#fff;
+      border-radius:20px;
+      padding:24px 16px;
+      text-align:center;
+      box-shadow:0 4px 20px rgba(30,26,14,0.1);
+      transition:transform 0.3s;
+    }
+    .stat-card:hover { transform:translateY(-6px) rotate(-1deg); }
+    .stat-num {
+      font-family:'Fredoka One',cursive;
+      font-size:2.4rem; color:var(--dark); line-height:1;
+      margin-bottom:6px;
+    }
+    .stat-num span { color:var(--yellow-dark); }
+    .stat-label { font-size:0.82rem; font-weight:700; color:#555; }
+
+    /* STORY SECTION */
+    .story-section {
+      background:var(--section-bg);
+      padding:60px 20px;
+    }
+    .section-tag {
+      display:inline-block;
+      background:var(--yellow);
+      color:var(--dark); font-size:0.78rem; font-weight:700;
+      padding:5px 16px; border-radius:50px;
+      margin-bottom:12px; letter-spacing:1px; text-transform:uppercase;
+    }
+    .section-title {
+      font-family:'Fredoka One',cursive;
+      font-size:clamp(1.6rem,5vw,2.4rem);
+      color:var(--text); margin-bottom:28px; line-height:1.2;
+    }
+
+    .story-card {
+      background:var(--card-bg);
+      border:1.5px solid rgba(249,203,21,0.25);
+      border-radius:24px;
+      padding:28px;
+      margin-bottom:20px;
+      box-shadow:0 2px 16px rgba(0,0,0,0.06);
+      transition:all 0.3s;
+      max-width:700px; margin-left:auto; margin-right:auto;
+    }
+    .story-card:hover {
+      border-color:var(--yellow);
+      box-shadow:0 10px 32px rgba(249,203,21,0.18);
+      transform:translateY(-3px);
+    }
+    .story-card-head {
+      display:flex; align-items:center; gap:14px;
+      margin-bottom:16px;
+    }
+    .story-icon {
+      width:52px; height:52px; min-width:52px;
+      background:var(--yellow);
+      border-radius:16px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.6rem;
+      box-shadow:0 4px 14px rgba(249,203,21,0.3);
+    }
+    .story-card h3 {
+      font-family:'Fredoka One',cursive;
+      font-size:1.25rem; color:var(--text);
+    }
+    .story-card p {
+      font-size:0.95rem; line-height:1.85;
+      color:var(--text); opacity:0.82;
+    }
+
+    /* MISSION GRID */
+    .mission-section {
+      background:var(--dark);
+      padding:60px 20px;
+    }
+    .mission-section .section-title { color:var(--yellow); margin-bottom:32px; }
+    .mission-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px; max-width:700px; margin:0 auto;
+    }
+    .mission-card {
+      background:#2C2712;
+      border:1.5px solid rgba(249,203,21,0.15);
+      border-radius:20px;
+      padding:24px 18px;
+      text-align:center;
+      transition:all 0.3s;
+    }
+    .mission-card:hover {
+      border-color:var(--yellow);
+      transform:translateY(-5px);
+      background:#3a3015;
+    }
+    .mission-card .m-icon { font-size:2.2rem; margin-bottom:12px; display:block; }
+    .mission-card p { font-size:0.88rem; color:#ddd; line-height:1.6; }
+
+    /* SOCKS NAME SECTION */
+    .name-section {
+      background:linear-gradient(135deg, var(--yellow) 0%, #FFD600 100%);
+      padding:60px 20px;
+      text-align:center;
+    }
+    .name-section h2 {
+      font-family:'Fredoka One',cursive;
+      font-size:clamp(1.8rem,6vw,2.8rem);
+      color:var(--dark); margin-bottom:16px;
+    }
+    .name-section p {
+      max-width:540px; margin:0 auto 24px;
+      font-size:1rem; line-height:1.9;
+      color:var(--dark2); font-weight:600;
+    }
+    .name-dna-row {
+      display:flex; align-items:center; justify-content:center;
+      gap:16px; flex-wrap:wrap;
+      margin:28px auto; max-width:400px;
+    }
+    .dna-badge {
+      background:var(--dark);
+      color:var(--yellow);
+      border-radius:50px;
+      padding:10px 22px;
+      font-family:'Fredoka One',cursive;
+      font-size:1.1rem;
+      box-shadow:0 4px 16px rgba(30,26,14,0.25);
+    }
+    .dna-arrow { font-size:1.6rem; color:var(--dark); }
+
+    /* TEAM */
+    .team-section {
+      background:var(--section-bg);
+      padding:60px 20px;
+    }
+    .team-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+      gap:14px; max-width:700px; margin:0 auto;
+    }
+    .team-card {
+      background:var(--card-bg);
+      border:1.5px solid rgba(249,203,21,0.2);
+      border-radius:20px;
+      padding:20px 14px;
+      text-align:center;
+      transition:all 0.3s;
+      box-shadow:0 2px 12px rgba(0,0,0,0.05);
+    }
+    .team-card:hover {
+      transform:translateY(-5px) scale(1.03);
+      border-color:var(--yellow);
+      box-shadow:0 10px 28px rgba(249,203,21,0.2);
+    }
+    .team-avatar {
+      width:52px; height:52px;
+      background:var(--yellow);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.4rem; margin:0 auto 10px;
+    }
+    .team-name { font-weight:700; font-size:0.9rem; color:var(--text); margin-bottom:4px; }
+    .team-role { font-size:0.78rem; color:var(--text); opacity:0.6; line-height:1.4; }
+
+    /* IMPACT */
+    .impact-section {
+      background:var(--dark);
+      padding:60px 20px;
+    }
+    .impact-section .section-title { color:var(--yellow); margin-bottom:32px; }
+    .impact-list { max-width:660px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
+    .impact-item {
+      background:#2C2712;
+      border:1.5px solid rgba(249,203,21,0.15);
+      border-radius:18px;
+      padding:20px 22px;
+      display:flex; align-items:flex-start; gap:16px;
+      transition:all 0.3s;
+    }
+    .impact-item:hover { border-color:var(--yellow); transform:translateX(-4px); }
+    body:not([dir="rtl"]) .impact-item:hover { transform:translateX(4px); }
+    .impact-logo { font-size:2rem; min-width:36px; }
+    .impact-text p { font-size:0.92rem; color:#ddd; line-height:1.7; }
+    .impact-text strong { color:var(--yellow); }
+
+    /* FOUNDERS */
+    .founders-section {
+      background:var(--yellow);
+      padding:60px 20px;
+    }
+    .founders-section h2 {
+      font-family:'Fredoka One',cursive;
+      font-size:clamp(1.8rem,5vw,2.4rem);
+      color:var(--dark); text-align:center; margin-bottom:32px;
+    }
+    .founders-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+      gap:14px; max-width:700px; margin:0 auto;
+    }
+    .founder-card {
+      background:#fff;
+      border-radius:20px;
+      padding:24px 16px;
+      text-align:center;
+      box-shadow:0 4px 20px rgba(30,26,14,0.1);
+      transition:all 0.3s;
+    }
+    .founder-card:hover { transform:translateY(-6px) rotate(1deg); }
+    .founder-avatar {
+      width:60px; height:60px; border-radius:50%;
+      background:var(--yellow); display:flex; align-items:center;
+      justify-content:center; font-size:1.6rem;
+      margin:0 auto 12px;
+      border:3px solid var(--dark);
+    }
+    .founder-name { font-weight:700; font-size:0.95rem; color:var(--dark); margin-bottom:4px; }
+    .founder-role { font-size:0.78rem; color:#666; line-height:1.5; }
+
+    /* CLOSING */
+    .closing-section {
+      background:var(--dark);
+      padding:70px 20px;
+      text-align:center;
+    }
+    .closing-section blockquote {
+      font-family:'Fredoka One',cursive;
+      font-size:clamp(1.2rem,4vw,1.8rem);
+      color:var(--yellow);
+      max-width:560px; margin:0 auto 28px;
+      line-height:1.5;
+    }
+    .closing-section p {
+      color:rgba(255,255,255,0.55);
+      font-size:0.88rem; margin-bottom:32px;
+    }
+    .btn-yellow {
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--yellow); color:var(--dark);
+      text-decoration:none; font-weight:700; font-size:1rem;
+      padding:15px 32px; border-radius:50px;
+      transition:all 0.3s;
+      box-shadow:0 6px 20px rgba(249,203,21,0.3);
+    }
+    .btn-yellow:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(249,203,21,0.45); }
+
+    /* FOOTER */
+    footer {
+      background:#0D0C07;
+      color:rgba(255,255,255,0.5);
+      text-align:center; padding:20px; font-size:0.82rem;
+    }
+    footer span { color:var(--yellow); }
+
+    /* CENTER HELPERS */
+    .center { text-align:center; }
+    .max700 { max-width:700px; margin:0 auto; }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" data-aos="fade-down">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Socks Coffee</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#menu" class="nav-link" data-ar="القائمة" data-en="Menu">القائمة</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link" data-ar="About" data-en="About">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
-                </li>
-            </ul>
-            <div class="nav-controls">
-                <button class="lang-switcher" id="langSwitcher" title="Toggle Language">
-                    <span class="lang-icon">🌐</span>
-                    <span class="lang-text">EN</span>
-                </button>
-                <button class="theme-switcher" id="themeSwitcher" title="Toggle Theme">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1 data-ar="Socks Specialty Coffee" data-en="Socks Specialty Coffee">Socks Specialty Coffee</h1>
-            <p data-ar="مكانك المفضل للقهوة المميزة والأجواء الرائعة" data-en="Your favorite place for premium coffee and wonderful atmosphere">مكانك المفضل للقهوة المميزة والأجواء الرائعة</p>
-            <a href="#menu" class="cta-button" data-ar="اطلع على المنيو" data-en="View Menu">اطلع على المنيو</a>
-        </div>
-    </section>
+<div class="sticker-layer" id="stickerLayer"></div>
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-ar="القائمة" data-en="Menu">القائمة</h2>
-            
-            <!-- Hot Drinks -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="100">
-                <h3 data-ar="مشروبات ساخنة" data-en="Hot Drinks">مشروبات ساخنة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="إسبريسو" data-en="Espresso">إسبريسو</span>
-                        <span class="item-price">65 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="أمريكانو" data-en="Americano">أمريكانو</span>
-                        <span class="item-price">85 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="فلات وايت" data-en="Flat White">فلات وايت</span>
-                        <span class="item-price">90 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="لاتيه" data-en="Latte">لاتيه</span>
-                        <span class="item-price">95 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="كابوتشينو" data-en="Cappuccino">كابوتشينو</span>
-                        <span class="item-price">95 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="إسباني لاتيه" data-en="Spanish Latte">إسباني لاتيه</span>
-                        <span class="item-price">145 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="سالتد كارامل" data-en="Salted Caramel">سالتد كارامل</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="وايت موكا" data-en="White Mocha">وايت موكا</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="موكا" data-en="Mocha">موكا</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="شوكولاتة ساخنة" data-en="Hot Chocolate">شوكولاتة ساخنة</span>
-                        <span class="item-price">125 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="شاي الإنجليزي" data-en="English Breakfast">شاي الإنجليزي</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="شاي أخضر" data-en="Green Tea">شاي أخضر</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="شاي إيرل جراي" data-en="Earl Gray Tea">شاي إيرل جراي</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                </div>
-            </div>
+<!-- NAV -->
+<nav class="navbar">
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">☕</div>
+    <h2>Socks <span>Coffee</span></h2>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="back-btn">
+      <span>←</span>
+      <span data-ar="الرئيسية" data-en="Home">الرئيسية</span>
+    </a>
+    <button class="btn-icon" id="langBtn">🌐 <span id="langLabel">EN</span></button>
+    <button class="btn-icon" id="themeBtn">🌙</button>
+  </div>
+</nav>
 
-            <!-- Ice Cube Drinks -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="200">
-                <h3 data-ar="مشروبات مثلجة" data-en="Ice Cube Drinks">مشروبات مثلجة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="أمريكانو مثلج" data-en="Iced Americano">أمريكانو مثلج</span>
-                        <span class="item-price">85 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="لاتيه مثلج" data-en="Iced Latte">لاتيه مثلج</span>
-                        <span class="item-price">100 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="موكا مثلج" data-en="Iced Mocha">موكا مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="كارامل ماكياتو مثلج" data-en="Iced Caramel Macchiato">كارامل ماكياتو مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="سالتد كارامل لاتيه مثلج" data-en="Iced Salted Caramel Latte">سالتد كارامل لاتيه مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="إسباني لاتيه مثلج" data-en="Iced Spanish Latte">إسباني لاتيه مثلج</span>
-                        <span class="item-price">150 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="وايت موكا مثلج" data-en="Iced White Mocha">وايت موكا مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="هيبسكوس مثلج" data-en="Iced Hibiscus">هيبسكوس مثلج</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                </div>
-            </div>
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-content">
+    <div class="about-hero-badge">
+      <span>🧦</span>
+      <span data-ar="قصتنا • Where Every Ability Belongs" data-en="Our Story • Where Every Ability Belongs">قصتنا • Where Every Ability Belongs</span>
+    </div>
+    <h1 data-ar="<span>Socks</span> مش بس مقهى" data-en="<span>Socks</span> Is More Than a Café"><span>Socks</span> مش بس مقهى</h1>
+    <p data-ar="ده مكان بيؤمن إن كل إنسان عنده قدرة، وإن الشمول مش رفاهية — ده حق." data-en="It's a place that believes every person has ability, and that inclusion isn't a luxury — it's a right.">ده مكان بيؤمن إن كل إنسان عنده قدرة، وإن الشمول مش رفاهية — ده حق.</p>
+  </div>
+</div>
 
-            <!-- Blended -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="300">
-                <h3 data-ar="مشروبات مكسوجة" data-en="Blended">مشروبات مكسوجة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="سالتد كارامل فرابيه" data-en="Salted Caramel Frappe">سالتد كارامل فرابيه</span>
-                        <span class="item-price">135 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="موكا فرابيه" data-en="Mocha Frappe">موكا فرابيه</span>
-                        <span class="item-price">135 ج</span>
-                    </div>
-                </div>
-            </div>
+<div class="page">
 
-            <!-- Matcha Drinks -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="400">
-                <h3 data-ar="مشروبات ماتشا" data-en="Matcha Drinks">مشروبات ماتشا</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="ماتشا لاتيه ساخن" data-en="Hot Matcha Latte">ماتشا لاتيه ساخن</span>
-                        <span class="item-price">100 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="ماتشا لاتيه مثلج" data-en="Iced Matcha Latte">ماتشا لاتيه مثلج</span>
-                        <span class="item-price">100 ج</span>
-                    </div>
-                </div>
-            </div>
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">90<span>%</span></div>
+        <div class="stat-label" data-ar="من الفريق من أصحاب الهمم" data-en="of team have developmental differences">من الفريق من أصحاب الهمم</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12</div>
+        <div class="stat-label" data-ar="شاب وبنت في الفريق" data-en="young team members">شاب وبنت في الفريق</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2025</div>
+        <div class="stat-label" data-ar="سنة التأسيس" data-en="Founded">سنة التأسيس</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1<span>st</span></div>
+        <div class="stat-label" data-ar="من أوائل المقاهي الشاملة في مصر" data-en="of Egypt's first fully inclusive cafés">من أوائل المقاهي الشاملة في مصر</div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Fresh Juice -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="500">
-                <h3 data-ar="عصائر طازجة" data-en="Fresh Juice">عصائر طازجة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="برتقال" data-en="Orange">برتقال</span>
-                        <span class="item-price">75 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="مانجو" data-en="Mango">مانجو</span>
-                        <span class="item-price">85 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="فراولة" data-en="Strawberry">فراولة</span>
-                        <span class="item-price">75 ج</span>
-                    </div>
-                </div>
-            </div>
+  <!-- WHO WE ARE -->
+  <section class="story-section">
+    <div class="center" style="margin-bottom:32px;">
+      <div class="section-tag" data-ar="من احنا" data-en="Who We Are">من احنا</div>
+      <h2 class="section-title" data-ar="🤝 مقهى بفلسفة مختلفة" data-en="🤝 A Café with a Different Philosophy">🤝 مقهى بفلسفة مختلفة</h2>
+    </div>
 
-            <!-- Extra -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="600">
-                <h3 data-ar="إضافات" data-en="Extra">إضافات</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="نكهة فانيليا" data-en="Vanilla Flavor">نكهة فانيليا</span>
-                        <span class="item-price">40 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="نكهة كارامل" data-en="Caramel Flavor">نكهة كارامل</span>
-                        <span class="item-price">40 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="حليب جوز الهند" data-en="Coconut Milk">حليب جوز الهند</span>
-                        <span class="item-price">60 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="حليب لوز" data-en="Almond Milk">حليب لوز</span>
-                        <span class="item-price">60 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name" data-ar="حليب شوفان" data-en="Oat Milk">حليب شوفان</span>
-                        <span class="item-price">60 ج</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="story-card">
+      <div class="story-card-head">
+        <div class="story-icon">🧦</div>
+        <h3 data-ar="ليه اسمنا Socks؟" data-en="Why the Name Socks?">ليه اسمنا Socks؟</h3>
+      </div>
+      <p data-ar="كل إنسان عنده 23 زوج من الكروموسومات — وتحت الميكروسكوب شكلها زي الشرابات! الاسم بيذكرنا إن احنا كلنا متشابهين من جوه، بس كل واحد فينا مختلف وهو وزي الشراب اللي ممكن يكون بلونين مختلفين بس كمل بعض." data-en="Every human has 23 pairs of chromosomes — and under a microscope they look like socks! The name reminds us we're all the same inside, yet uniquely different — like a pair of socks that may differ in color but still belong together.">كل إنسان عنده 23 زوج من الكروموسومات — وتحت الميكروسكوب شكلها زي الشرابات! الاسم بيذكرنا إن احنا كلنا متشابهين من جوه، بس كل واحد فينا مختلف — زي الشراب اللي ممكن يكون بلونين مختلفين بس كمل بعض.</p>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content" data-aos="fade-up">
-                <h2 class="section-title" data-ar="About Us" data-en="About Us">About Us</h2>
-                <p data-ar="Discover our complete brand story, design elements, and what makes Socks Specialty Coffee special." data-en="Discover our complete brand story, design elements, and what makes Socks Specialty Coffee special.">Discover our complete brand story, design elements, and what makes Socks Specialty Coffee special.</p>
-                <a href="about.html" class="cta-button" data-ar="Learn More About Us" data-en="Learn More About Us">Learn More About Us</a>
-            </div>
-        </div>
-    </section>
+    <div class="story-card">
+      <div class="story-card-head">
+        <div class="story-icon">💛</div>
+        <h3 data-ar="الشمول مش إحسان" data-en="Inclusion is Not Charity">الشمول مش إحسان</h3>
+      </div>
+      <p data-ar="Socks Café واحد من أوائل المقاهي في مصر اللي بيشتغل بنموذج توظيف شامل حقيقي. 90% من الفريق من الشباب أصحاب الهمم — وده مش إحسان، ده فرصة استحقوها وأثبتوا إنهم يستأهلوها." data-en="Socks Café is one of Egypt's first cafés operating on a truly inclusive employment model. 90% of the team are individuals with developmental differences — this isn't charity, it's an opportunity they earned and proved they deserve.">Socks Café واحد من أوائل المقاهي في مصر اللي بيشتغل بنموذج توظيف شامل حقيقي. 90% من الفريق من الشباب أصحاب الهمم — وده مش إحسان، ده فرصة استحقوها وأثبتوا إنهم يستأهلوها.</p>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</h2>
-            <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-item">
-                    <h3 data-ar="?? ??????" data-en="?? Address">?? ??????</h3>
-                    <p data-ar="???? ?????? ??????? ?????? ?????" data-en="Coffee Street Main, Cairo, Egypt">???? ?????? ??????? ?????? ????</p>
-                </div>
-                <div class="contact-item">
-                    <h3 data-ar="⏰ ساعات العمل" data-en="⏰ Working Hours">⏰ ساعات العمل</h3>
-                    <p data-ar="الأحد - الخميس: 8 صباحاً - 10 مساءً" data-en="Sunday - Thursday: 8 AM - 10 PM">الأحد - الخميس: 8 صباحاً - 10 مساءً</p>
-                    <p data-ar="الجمعة - السبت: 9 صباحاً - 11 مساءً" data-en="Friday - Saturday: 9 AM - 11 PM">الجمعة - السبت: 9 صباحاً - 11 مساءً</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="story-card">
+      <div class="story-card-head">
+        <div class="story-icon">☕</div>
+        <h3 data-ar="قهوة عالية الجودة" data-en="High-Quality Coffee">قهوة عالية الجودة</h3>
+      </div>
+      <p data-ar="هدفنا مش بس الشمول — هدفنا إننا نثبت إن التميز والشمول بيمشوا جنب بعض. كل كوب بيتعمل باحترافية، بتدريب مستمر، وبحب." data-en="Our goal isn't just inclusion — it's to prove that excellence and inclusion walk hand in hand. Every cup is made with professionalism, continuous training, and love.">هدفنا مش بس الشمول — هدفنا إننا نثبت إن التميز والشمول بيمشوا جنب بعض. كل كوب بيتعمل باحترافية، بتدريب مستمر، وبحب.</p>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Socks Specialty Coffee. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+  <!-- MISSION -->
+  <section class="mission-section">
+    <div class="center" style="margin-bottom:32px;">
+      <div class="section-tag" style="background:#2C2712;color:var(--yellow);" data-ar="رسالتنا" data-en="Our Mission">رسالتنا</div>
+      <h2 class="section-title" data-ar="🌟 ليه بنعمل ده؟" data-en="🌟 Why We Do This?">🌟 ليه بنعمل ده؟</h2>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <span class="m-icon">💼</span>
+        <p data-ar="توفير فرص توظيف حقيقية لأصحاب الهمم" data-en="Provide real job opportunities for people with disabilities">توفير فرص توظيف حقيقية لأصحاب الهمم</p>
+      </div>
+      <div class="mission-card">
+        <span class="m-icon">🧠</span>
+        <p data-ar="تغيير نظرة المجتمع لقدرات أصحاب الاحتياجات الخاصة" data-en="Change society's view of neurodiverse individuals' capabilities">تغيير نظرة المجتمع لقدرات أصحاب الاحتياجات الخاصة</p>
+      </div>
+      <div class="mission-card">
+        <span class="m-icon">📈</span>
+        <p data-ar="تدريب مستمر وتطوير مهني للفريق" data-en="Continuous training & professional growth for the team">تدريب مستمر وتطوير مهني للفريق</p>
+      </div>
+      <div class="mission-card">
+        <span class="m-icon">🌍</span>
+        <p data-ar="نكون نموذج يُحتذى به في مصر وأفريقيا" data-en="Become a leading model in Egypt & beyond">نكون نموذج يُحتذى به في مصر وأفريقيا</p>
+      </div>
+      <div class="mission-card">
+        <span class="m-icon">❤️</span>
+        <p data-ar="بيئة آمنة وودية ومريحة للجميع" data-en="A safe, welcoming environment for everyone">بيئة آمنة وودية ومريحة للجميع</p>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+  <!-- SOCKS NAME VISUAL -->
+  <section class="name-section">
+    <h2 data-ar="23 زوج كروموسوم = شرابتين 🧦" data-en="23 Chromosome Pairs = A Pair of Socks 🧦">23 زوج كروموسوم = شرابتين 🧦</h2>
+    <p data-ar="كل إنسان على الكوكب عنده 23 زوج من الكروموسومات. تحت الميكروسكوب شكلها زي الشرابات بالظبط! ده إللي وحدنا — ليس الاختلاف، لكن الأساس المشترك." data-en="Every person on Earth has 23 pairs of chromosomes. Under a microscope they look exactly like socks! That's what unites us — not sameness, but a shared foundation.">كل إنسان على الكوكب عنده 23 زوج من الكروموسومات. تحت الميكروسكوب شكلها زي الشرابات بالظبط! ده إللي وحدنا — مش التطابق، لكن الأساس المشترك.</p>
+    <div class="name-dna-row">
+      <div class="dna-badge">🧬 23 زوج</div>
+      <div class="dna-arrow">→</div>
+      <div class="dna-badge">🧦 شرابتين</div>
+      <div class="dna-arrow">→</div>
+      <div class="dna-badge">🤝 Socks</div>
+    </div>
+    <p style="font-size:0.95rem;" data-ar="الشرابين ممكن يكونوا بلونين مختلفين — بس كملوا بعض." data-en="Two socks can be different colors — but they still belong together.">الشرابين ممكن يكونوا بلونين مختلفين — بس كملوا بعض.</p>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="center" style="margin-bottom:32px;">
+      <div class="section-tag" data-ar="قلب المقهى" data-en="Heart of the Café">قلب المقهى</div>
+      <h2 class="section-title" data-ar="👥 الفريق" data-en="👥 The Team">👥 الفريق</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar">☕</div><div class="team-name">Youssef Khaled</div><div class="team-role" data-ar="باريستا أول" data-en="Senior Barista">باريستا أول</div></div>
+      <div class="team-card"><div class="team-avatar">☕</div><div class="team-name">Mahmoud Bahwashy</div><div class="team-role" data-ar="باريستا أول" data-en="Senior Barista">باريستا أول</div></div>
+      <div class="team-card"><div class="team-avatar">🧦</div><div class="team-name">Marwan Mahmoud</div><div class="team-role" data-ar="باريستا • Down Syndrome" data-en="Barista • Down Syndrome">باريستا</div></div>
+      <div class="team-card"><div class="team-avatar">⭐</div><div class="team-name">Youssef Nagy</div><div class="team-role" data-ar="كاشير • Autism" data-en="Cashier • Autism">كاشير</div></div>
+      <div class="team-card"><div class="team-avatar">☕</div><div class="team-name">Youssef Medhat</div><div class="team-role" data-ar="كاشير • Autism" data-en="Cashier • Autism">كاشير</div></div>
+      <div class="team-card"><div class="team-avatar">💛</div><div class="team-name">Rahma Khaled</div><div class="team-role" data-ar="باريستا • Down Syndrome" data-en="Barista • Down Syndrome">باريستا</div></div>
+      <div class="team-card"><div class="team-avatar">🌟</div><div class="team-name">Yassin</div><div class="team-role" data-ar="باريستا • Down Syndrome" data-en="Barista • Down Syndrome">باريستا</div></div>
+      <div class="team-card"><div class="team-avatar">🎉</div><div class="team-name">Yehia Omar</div><div class="team-role" data-ar="كاشير • Prader-Willi" data-en="Cashier • Prader-Willi">كاشير</div></div>
+      <div class="team-card"><div class="team-avatar">🤝</div><div class="team-name">Nourine (Nouni)</div><div class="team-role" data-ar="باريستا متدرب" data-en="Junior Barista">باريستا متدرب</div></div>
+      <div class="team-card"><div class="team-avatar">🏋️</div><div class="team-name">Hesham Sayed</div><div class="team-role" data-ar="مدرب ومدير العلامة التجارية" data-en="Trainer & Brand Manager">مدرب ومدير العلامة</div></div>
+      <div class="team-card"><div class="team-avatar">☕</div><div class="team-name">Roshdy AbdelNasser</div><div class="team-role" data-ar="باريستا • Global Dev Delay" data-en="Barista">باريستا</div></div>
+      <div class="team-card"><div class="team-avatar">💛</div><div class="team-name">Donia</div><div class="team-role" data-ar="باريستا وكاشير • Down Syndrome" data-en="Barista & Cashier">باريستا وكاشير</div></div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section">
+    <div class="center" style="margin-bottom:32px;">
+      <div class="section-tag" style="background:#2C2712;color:var(--yellow);" data-ar="أثرنا" data-en="Our Impact">أثرنا</div>
+      <h2 class="section-title" data-ar="🌍 أكبر من المقهى" data-en="🌍 Bigger Than the Café">🌍 أكبر من المقهى</h2>
+    </div>
+    <div class="impact-list">
+      <div class="impact-item">
+        <div class="impact-logo">👟</div>
+        <div class="impact-text"><p><strong data-ar="Adidas Arabia (أكتوبر 2025)" data-en="Adidas Arabia (Oct 2025)">Adidas Arabia (أكتوبر 2025)</strong><br><span data-ar="شاركنا كموفر خدمة محترف في أسبوع الشمول للمعاقين" data-en="Participated as professional coffee providers at their disability inclusion week">شاركنا كموفر خدمة محترف في أسبوع الشمول للمعاقين</span></p></div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-logo">🏭</div>
+        <div class="impact-text"><p><strong data-ar="Procter & Gamble Egypt (ديسمبر 2025)" data-en="Procter & Gamble Egypt (Dec 2025)">Procter & Gamble Egypt (ديسمبر 2025)</strong><br><span data-ar="قدمنا خدمة قهوة احترافية في اليوم العالمي لذوي الإعاقة" data-en="Provided professional coffee service for International Day of Persons with Disabilities">قدمنا خدمة قهوة احترافية في اليوم العالمي لذوي الإعاقة</span></p></div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-logo">📡</div>
+        <div class="impact-text"><p><strong data-ar="Vodafone Egypt" data-en="Vodafone Egypt">Vodafone Egypt</strong><br><span data-ar='تعاون في عرض أول فيلم "ليلى راس السنة" على السجادة الحمراء' data-en='Collaboration on red carpet premiere of "Leila Ras El Sana"'>تعاون في عرض فيلم "ليلى راس السنة" على السجادة الحمراء</span></p></div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-logo">🏛️</div>
+        <div class="impact-text"><p><strong data-ar="احتفالية رئاسية لعيد الفطر" data-en="Presidential Eid Al-Fitr Celebration">احتفالية رئاسية لعيد الفطر</strong><br><span data-ar="فريق Socks قدّم القهوة للرئيس عبد الفتاح السيسي" data-en="The Socks team had the honor of serving coffee to President Abdel Fattah el-Sisi">فريق Socks قدّم القهوة للرئيس عبد الفتاح السيسي</span></p></div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-logo">🎓</div>
+        <div class="impact-text"><p><strong data-ar="الجامعة الألمانية وعين شمس" data-en="GUC & Ain Shams University">الجامعة الألمانية وعين شمس</strong><br><span data-ar="مشاركة في معارض التوظيف وأحداث التوعية بالتنوع العصبي" data-en="Participation in employment fairs & neurodiversity awareness events">مشاركة في معارض التوظيف وأحداث التوعية</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section class="founders-section">
+    <h2 data-ar="👋 مؤسسو Socks" data-en="👋 Meet the Founders">👋 مؤسسو Socks</h2>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-avatar">⚖️</div>
+        <div class="founder-name">Taha Moussa</div>
+        <div class="founder-role" data-ar="محامي ورجل أعمال • شريك مؤسس" data-en="Lawyer & Entrepreneur • Co-Founder">محامي ورجل أعمال</div>
+      </div>
+      <div class="founder-card">
+        <div class="founder-avatar">💛</div>
+        <div class="founder-name">Rania AbdelAziz</div>
+        <div class="founder-role" data-ar="متخصصة تدخل مبكر • 11+ سنة خبرة" data-en="Early Intervention Specialist • 11+ yrs">متخصصة تدخل مبكر</div>
+      </div>
+      <div class="founder-card">
+        <div class="founder-avatar">🏛️</div>
+        <div class="founder-name">Islam Ibrahim</div>
+        <div class="founder-role" data-ar="مهندس معماري وأستاذ جامعي ورجل أعمال" data-en="Architect, Professor & Entrepreneur">مهندس وأستاذ جامعي</div>
+      </div>
+      <div class="founder-card">
+        <div class="founder-avatar">💊</div>
+        <div class="founder-name">Mohamed AbdelAziz</div>
+        <div class="founder-role" data-ar="صيدلي وأب لطفل مصاب بالتوحد" data-en="Pharmacist & Father of an Autistic Child">صيدلي وأب لطفل مصاب بالتوحد</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing-section">
+    <blockquote data-ar='"الشمول مش إحسان — هو فرصة."' data-en='"Inclusion is not charity — it is opportunity."'>"الشمول مش إحسان — هو فرصة."</blockquote>
+    <p data-ar="— Socks Specialty Coffee • القاهرة، مصر 2025" data-en="— Socks Specialty Coffee • Cairo, Egypt 2025">— Socks Specialty Coffee • Cairo, Egypt 2025</p>
+    <a href="index.html" class="btn-yellow">
+      <span>☕</span>
+      <span data-ar="شوف المنيو" data-en="View Menu">شوف المنيو</span>
+    </a>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2025 <span>Socks Specialty Coffee</span> • <span data-ar="الشمول مش خيار، ده حق 🧦" data-en="Inclusion is not charity — it's opportunity 🧦">الشمول مش خيار، ده حق 🧦</span></p>
+</footer>
+
+<script>
+  // STICKERS
+  const stickers = ['☕','🧦','🤍','⭐','🌟','✨','🍵','🫖','🌺','🍫','🧠','💛','🤝','💪'];
+  const layer = document.getElementById('stickerLayer');
+  function spawnSticker() {
+    const el = document.createElement('span');
+    el.className = 'sticker';
+    el.textContent = stickers[Math.floor(Math.random()*stickers.length)];
+    el.style.left = Math.random()*100+'vw';
+    el.style.animationDuration = (14+Math.random()*16)+'s';
+    el.style.fontSize = (18+Math.random()*28)+'px';
+    layer.appendChild(el);
+    setTimeout(()=>el.remove(), 32000);
+  }
+  for(let i=0;i<5;i++) setTimeout(spawnSticker, i*1000);
+  setInterval(spawnSticker, 2500);
+
+  // LANG
+  let lang = localStorage.getItem('socks_lang')||'ar';
+  function applyLang(){
+    const isAr = lang==='ar';
+    document.documentElement.setAttribute('lang',lang);
+    document.documentElement.setAttribute('dir',isAr?'rtl':'ltr');
+    document.getElementById('langLabel').textContent = isAr?'EN':'AR';
+    document.querySelectorAll('[data-ar][data-en]').forEach(el=>{
+      const val = isAr ? el.dataset.ar : el.dataset.en;
+      if(el.tagName==='H1'||el.tagName==='BLOCKQUOTE') el.innerHTML=val;
+      else el.textContent=val;
+    });
+  }
+  applyLang();
+  document.getElementById('langBtn').addEventListener('click',()=>{
+    lang=lang==='ar'?'en':'ar';
+    localStorage.setItem('socks_lang',lang);
+    applyLang();
+  });
+
+  // THEME
+  let theme = localStorage.getItem('socks_theme')||'light';
+  function applyTheme(){
+    document.body.classList.toggle('dark',theme==='dark');
+    document.getElementById('themeBtn').textContent=theme==='dark'?'☀️':'🌙';
+  }
+  applyTheme();
+  document.getElementById('themeBtn').addEventListener('click',()=>{
+    theme=theme==='dark'?'light':'dark';
+    localStorage.setItem('socks_theme',theme);
+    applyTheme();
+  });
+
+  // SCROLL REVEAL
+  const cards = document.querySelectorAll('.story-card,.stat-card,.mission-card,.team-card,.impact-item,.founder-card');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        e.target.style.transform='translateY(0)';
+      }
+    });
+  },{threshold:0.1});
+  cards.forEach(c=>{
+    c.style.opacity='0';
+    c.style.transform='translateY(20px)';
+    c.style.transition='opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s';
+    io.observe(c);
+  });
+</script>
 </body>
 </html>
