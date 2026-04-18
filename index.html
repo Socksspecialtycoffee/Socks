@@ -8,270 +8,84 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar" data-aos="fade-down">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Socks Coffee</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#menu" class="nav-link" data-ar="القائمة" data-en="Menu">القائمة</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link" data-ar="About" data-en="About">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
-                </li>
-            </ul>
-            <div class="nav-controls">
-                <button class="lang-switcher" id="langSwitcher" title="Toggle Language">
-                    <span class="lang-icon">🌐</span>
-                    <span class="lang-text">EN</span>
-                </button>
-                <button class="theme-switcher" id="themeSwitcher" title="Toggle Theme">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+<body class="light-theme">
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h2 data-ar="جورب للقهوة" data-en="SOCKS COFFEE">SOCKS COFFEE</h2>
+        </div>
+        <div class="nav-controls">
+            <button class="btn-control" id="langSwitcher">EN</button>
+            <button class="btn-control" id="themeSwitcher">🌙</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1 data-ar="Socks Specialty Coffee" data-en="Socks Specialty Coffee">Socks Specialty Coffee</h1>
-            <p data-ar="مكانك المفضل للقهوة المميزة والأجواء الرائعة" data-en="Your favorite place for premium coffee and wonderful atmosphere">مكانك المفضل للقهوة المميزة والأجواء الرائعة</p>
-            <a href="#menu" class="cta-button" data-ar="اطلع على المنيو" data-en="View Menu">اطلع على المنيو</a>
-        </div>
-    </section>
+    <header class="hero">
+        <h1 data-aos="zoom-in" data-ar="قهوة مختصة برؤية مختلفة" data-en="Specialty Coffee with a Different Vision">قهوة مختصة برؤية مختلفة</h1>
+        <p data-aos="fade-up" data-aos-delay="200" data-ar="الاختلافات تجعلنا أقوى" data-en="Differences Make Us Stronger">الاختلافات تجعلنا أقوى</p>
+    </header>
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-ar="القائمة" data-en="Menu">القائمة</h2>
-            
-            <!-- Hot Drinks -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="100">
-                <h3 data-ar="مشروبات ساخنة" data-en="Hot Drinks">مشروبات ساخنة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name">إسبريسو</span>
-                        <span class="item-price">65 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">أمريكانو</span>
-                        <span class="item-price">85 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">فلات وايت</span>
-                        <span class="item-price">90 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">لاتيه</span>
-                        <span class="item-price">95 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">كابوتشينو</span>
-                        <span class="item-price">95 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">إسباني لاتيه</span>
-                        <span class="item-price">145 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">سالتد كارامل</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">وايت موكا</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">موكا</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">شوكولاتة ساخنة</span>
-                        <span class="item-price">125 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">شاي الإنجليزي</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">شاي أخضر</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">شاي إيرل جراي</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                </div>
+    <section class="brand-showcase">
+        <h2 class="section-title" data-aos="fade-down" data-ar="عن هويتنا" data-en="About Our Identity">عن هويتنا</h2>
+        
+        <div class="brand-grid">
+            <div class="brand-card" data-aos="fade-up">
+                <h3 data-ar="رؤيتنا" data-en="Our Vision">رؤيتنا</h3>
+                <p data-ar="نحن نحتفي بكل أنواع التنوع، تماماً مثل الجوارب الملونة، كل قطعة فريدة ولكنها تكمل الأخرى." 
+                   data-en="We celebrate all kinds of diversity, just like colorful socks, each piece is unique but completes the other.">
+                   نحن نحتفي بكل أنواع التنوع، تماماً مثل الجوارب الملونة، كل قطعة فريدة ولكنها تكمل الأخرى.
+                </p>
+                <span class="sticker" data-ar="جودة ممتازة" data-en="Premium Quality">جودة ممتازة</span>
             </div>
 
-            <!-- Ice Cube Drinks -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="200">
-                <h3 data-ar="مشروبات مثلجة" data-en="Ice Cube Drinks">مشروبات مثلجة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name">أمريكانو مثلج</span>
-                        <span class="item-price">85 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">لاتيه مثلج</span>
-                        <span class="item-price">100 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">موكا مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">كارامل ماكياتو مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">سالتد كارامل لاتيه مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">إسباني لاتيه مثلج</span>
-                        <span class="item-price">150 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">وايت موكا مثلج</span>
-                        <span class="item-price">130 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">هيبسكوس مثلج</span>
-                        <span class="item-price">80 ج</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blended -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="300">
-                <h3 data-ar="مشروبات مكسوجة" data-en="Blended">مشروبات مكسوجة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name">سالتد كارامل فرابيه</span>
-                        <span class="item-price">135 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">موكا فرابيه</span>
-                        <span class="item-price">135 ج</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Matcha Drinks -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="400">
-                <h3 data-ar="مشروبات ماتشا" data-en="Matcha Drinks">مشروبات ماتشا</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name">ماتشا لاتيه ساخن</span>
-                        <span class="item-price">100 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">ماتشا لاتيه مثلج</span>
-                        <span class="item-price">100 ج</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fresh Juice -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="500">
-                <h3 data-ar="عصائر طازجة" data-en="Fresh Juice">عصائر طازجة</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name">برتقال</span>
-                        <span class="item-price">75 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">مانجو</span>
-                        <span class="item-price">85 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">فراولة</span>
-                        <span class="item-price">75 ج</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Extra -->
-            <div class="menu-category" data-aos="fade-up" data-aos-delay="600">
-                <h3 data-ar="إضافات" data-en="Extra">إضافات</h3>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <span class="item-name">نكهة فانيليا</span>
-                        <span class="item-price">40 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">نكهة كارامل</span>
-                        <span class="item-price">40 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">حليب جوز الهند</span>
-                        <span class="item-price">60 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">حليب لوز</span>
-                        <span class="item-price">60 ج</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">حليب شوفان</span>
-                        <span class="item-price">60 ج</span>
-                    </div>
+            <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
+                <h3 data-ar="التصميم" data-en="Design">التصميم</h3>
+                <p data-ar="نستخدم الألوان المبهجة (الأصفر) لتعزيز الإيجابية والرمادي للفخامة." 
+                   data-en="We use cheerful colors (Yellow) to promote positivity and Gray for luxury.">
+                   نستخدم الألوان المبهجة (الأصفر) لتعزيز الإيجابية والرمادي للفخامة.
+                </p>
+                <div style="margin-top:10px;">
+                    <div style="display:inline-block; width:20px; height:20px; background:#f9cb15; border-radius:50%"></div>
+                    <div style="display:inline-block; width:20px; height:20px; background:#2c2c2c; border-radius:50%"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content" data-aos="fade-up">
-                <h2 class="section-title" data-ar="About Us" data-en="About Us">About Us</h2>
-                <p data-ar="Discover our complete brand story, design elements, and what makes Socks Specialty Coffee special." data-en="Discover our complete brand story, design elements, and what makes Socks Specialty Coffee special.">Discover our complete brand story, design elements, and what makes Socks Specialty Coffee special.</p>
-                <a href="about.html" class="cta-button" data-ar="Learn More About Us" data-en="Learn More About Us">Learn More About Us</a>
+    <section class="menu-section" id="menu">
+        <h2 class="section-title" data-aos="fade-right" data-ar="قائمة المشروبات" data-en="Our Menu">قائمة المشروبات</h2>
+        
+        <div class="menu-grid">
+            <div class="menu-item" data-aos="flip-up">
+                <div class="item-info">
+                    <h3 data-ar="إسبريسو" data-en="Espresso">إسبريسو</h3>
+                    <p data-ar="مركز وقوي" data-en="Rich and Bold">مركز وقوي</p>
+                </div>
+                <div class="item-price">65 EGP</div>
+            </div>
+
+            <div class="menu-item" data-aos="flip-up" data-aos-delay="100">
+                <div class="item-info">
+                    <h3 data-ar="سبانش لاتيه" data-en="Spanish Latte">سبانش لاتيه</h3>
+                    <p data-ar="مزيج كريمي حلو" data-en="Sweet Creamy Mix">مزيج كريمي حلو</p>
+                </div>
+                <div class="item-price">150 EGP</div>
+            </div>
+
+            <div class="menu-item" data-aos="flip-up" data-aos-delay="200">
+                <div class="item-info">
+                    <h3 data-ar="كرواسون جبنة" data-en="Cheese Croissant">كرواسون جبنة</h3>
+                    <p data-ar="طازج يومياً" data-en="Baked Daily">طازج يومياً</p>
+                </div>
+                <div class="item-price">110 EGP</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-ar="اتصل بنا" data-en="Contact Us">اتصل بنا</h2>
-            <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-item">
-                    <h3 data-ar="?? ??????" data-en="?? Address">?? ??????</h3>
-                    <p data-ar="???? ?????? ??????? ?????? ?????" data-en="Coffee Street Main, Cairo, Egypt">???? ?????? ??????? ?????? ????</p>
-                </div>
-                <div class="contact-item">
-                    <h3 data-ar="⏰ ساعات العمل" data-en="⏰ Working Hours">⏰ ساعات العمل</h3>
-                    <p data-ar="الأحد - الخميس: 8 صباحاً - 10 مساءً" data-en="Sunday - Thursday: 8 AM - 10 PM">الأحد - الخميس: 8 صباحاً - 10 مساءً</p>
-                    <p data-ar="الجمعة - السبت: 9 صباحاً - 11 مساءً" data-en="Friday - Saturday: 9 AM - 11 PM">الجمعة - السبت: 9 صباحاً - 11 مساءً</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Socks Specialty Coffee. جميع الحقوق محفوظة.</p>
-        </div>
+    <footer>
+        <p>&copy; 2026 SOCKS SPECIALTY COFFEE</p>
+        <p data-ar="صنع بكل حب في القاهرة" data-en="Made with love in Cairo">صنع بكل حب في القاهرة</p>
     </footer>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
