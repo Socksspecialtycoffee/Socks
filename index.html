@@ -2,88 +2,109 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOCKS Specialty Coffee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Socks Specialty Coffee</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav class="navbar">
+    <nav class="navbar" data-aos="fade-down">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2 data-ar="جورب للقهوة" data-en="SOCKS COFFEE">SOCKS COFFEE</h2>
+                <h2 data-ar="Socks Coffee" data-en="Socks Coffee">Socks Coffee</h2>
             </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                <li><a href="#menu" class="nav-link" data-ar="المنيو" data-en="Menu">المنيو</a></li>
+                <li><a href="#about" class="nav-link" data-ar="عنا" data-en="About">عنا</a></li>
+            </ul>
             <div class="nav-controls">
-                <button class="btn-control" id="langSwitcher">EN</button>
-                <button class="btn-control" id="themeSwitcher">🌙</button>
+                <button class="lang-switcher" id="langSwitcher">
+                    <span class="lang-text">EN</span>
+                </button>
+                <button class="theme-switcher" id="themeSwitcher">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content" data-aos="zoom-in">
-            <h1 data-ar="قهوة مختصة برؤية مختلفة" data-en="Specialty Coffee with a Different Vision">قهوة مختصة برؤية مختلفة</h1>
-            <p data-ar="الاختلافات تجعلنا أقوى" data-en="Differences Make Us Stronger">الاختلافات تجعلنا أقوى</p>
+    <section class="brand-showcase" id="about">
+        <div class="container brand-content">
+            <div class="logo-showcase" data-aos="zoom-in">
+                <h1 class="main-logo" data-ar="Socks Specialty Coffee" data-en="Socks Specialty Coffee">Socks Specialty Coffee</h1>
+                <p class="tagline" data-ar="تجربة قهوة فاخرة" data-en="Premium Coffee Experience">تجربة قهوة فاخرة</p>
+            </div>
+
+            <div class="brand-elements">
+                <div class="brand-card" data-aos="fade-up">
+                    <h3 data-ar="هوية البراند" data-en="Brand Identity">هوية البراند</h3>
+                    <p data-ar="براند يمثل الجودة، الدفء، وتجارب القهوة الاستثنائية." data-en="Our brand represents quality, warmth, and exceptional coffee experiences.">براند يمثل الجودة، الدفء، وتجارب القهوة الاستثنائية.</p>
+                    <div class="stickers">
+                        <span class="sticker" data-ar="جودة ممتازة" data-en="Premium Quality">جودة ممتازة</span>
+                        <span class="sticker" data-ar="قهوة حرفية" data-en="Artisan Coffee">قهوة حرفية</span>
+                    </div>
+                </div>
+
+                <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 data-ar="باليت الألوان" data-en="Color Palette">باليت الألوان</h3>
+                    <p data-ar="ألواننا الرسمية تعكس الطاقة والفخامة." data-en="Our signature colors reflect energy and luxury.">ألواننا الرسمية تعكس الطاقة والفخامة.</p>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background-color: #f9cb15;" data-color="#f9cb15"></div>
+                        <div class="color-swatch" style="background-color: #f8e92a;" data-color="#f8e92a"></div>
+                        <div class="color-swatch" style="background-color: #2c2c2c;" data-color="#2c2c2c"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="brand-section">
-        <h2 class="section-title" data-ar="عن هويتنا" data-en="About Us">عن هويتنا</h2>
-        <div class="brand-grid">
-            <div class="brand-card" data-aos="fade-up">
-                <h3 data-ar="الهوية" data-en="Identity">الهوية</h3>
-                <p data-ar="نحتفي بالتنوع، تماماً مثل الجوارب الملونة، كل قطعة فريدة." data-en="We celebrate diversity, just like colorful socks, each piece is unique.">نحتفي بالتنوع، تماماً مثل الجوارب الملونة، كل قطعة فريدة.</p>
-                <span class="sticker" data-ar="جودة ممتازة" data-en="Premium Quality">جودة ممتازة</span>
-            </div>
-            <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
-                <h3 data-ar="التصميم" data-en="Design">التصميم</h3>
-                <p data-ar="الأصفر للطاقة والرمادي للفخامة." data-en="Yellow for energy and Gray for luxury.">الأصفر للطاقة والرمادي للفخامة.</p>
-                <div class="swatches">
-                    <div class="swatch" style="background:#f9cb15"></div>
-                    <div class="swatch" style="background:#2c2c2c"></div>
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-ar="منيو المشروبات" data-en="Drinks Menu">منيو المشروبات</h2>
+            
+            <div class="menu-category" data-aos="fade-up">
+                <h3 data-ar="مشروبات ساخنة" data-en="Hot Drinks">مشروبات ساخنة</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name" data-ar="إسبريسو" data-en="Espresso">إسبريسو</span>
+                        <span class="item-price">65 EGP</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name" data-ar="سبانش لاتيه" data-en="Spanish Latte">سبانش لاتيه</span>
+                        <span class="item-price">150 EGP</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name" data-ar="فلات وايت" data-en="Flat White">فلات وايت</span>
+                        <span class="item-price">100 EGP</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="menu-section">
-        <h2 class="section-title" data-ar="المنيو" data-en="Menu">المنيو</h2>
-        <div class="menu-grid">
-            <div class="menu-card" data-aos="flip-left">
-                <div class="info">
-                    <h3 data-ar="إسبريسو" data-en="Espresso">إسبريسو</h3>
-                    <p data-ar="مركز وقوي" data-en="Strong and Concentrated">مركز وقوي</p>
+            <div class="menu-category" data-aos="fade-up">
+                <h3 data-ar="مشروبات باردة" data-en="Iced Drinks">مشروبات باردة</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name" data-ar="آيسد سبانش لاتيه" data-en="Iced Spanish Latte">آيسد سبانش لاتيه</span>
+                        <span class="item-price">170 EGP</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name" data-ar="آيسد كراميل ماكياتو" data-en="Iced Caramel Macchiato">آيسد كراميل ماكياتو</span>
+                        <span class="item-price">150 EGP</span>
+                    </div>
                 </div>
-                <div class="price">65 EGP</div>
-            </div>
-            <div class="menu-card" data-aos="flip-left" data-aos-delay="100">
-                <div class="info">
-                    <h3 data-ar="سبانش لاتيه" data-en="Spanish Latte">سبانش لاتيه</h3>
-                    <p data-ar="حلو وكريمي" data-en="Sweet and Creamy">حلو وكريمي</p>
-                </div>
-                <div class="price">150 EGP</div>
-            </div>
-            <div class="menu-card" data-aos="flip-left" data-aos-delay="200">
-                <div class="info">
-                    <h3 data-ar="آيسد كراميل ماكياتو" data-en="Iced Caramel Macchiato">آيسد كراميل ماكياتو</h3>
-                    <p data-ar="منعش بالكراميل" data-en="Refreshing Caramel">منعش بالكراميل</p>
-                </div>
-                <div class="price">150 EGP</div>
-            </div>
-            <div class="menu-card" data-aos="flip-left">
-                <div class="info">
-                    <h3 data-ar="كرواسون جبنة" data-en="Cheese Croissant">كرواسون جبنة</h3>
-                    <p data-ar="مخبوز طازج" data-en="Freshly Baked">مخبوز طازج</p>
-                </div>
-                <div class="price">110 EGP</div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p data-ar="© 2026 جورب للقهوة المختصة" data-en="© 2026 SOCKS Specialty Coffee">© 2026 جورب للقهوة المختصة</p>
+        <div class="container">
+            <p data-ar="&copy; 2026 Socks Specialty Coffee. جميع الحقوق محفوظة." data-en="&copy; 2026 Socks Specialty Coffee. All rights reserved.">&copy; 2026 Socks Specialty Coffee. جميع الحقوق محفوظة.</p>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
