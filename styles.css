@@ -81,17 +81,28 @@ body.dark-theme .hero {
 }
 
 body.dark-theme .menu {
-    background-color: #1a1a1a;
+    background-color: #2c2c2c;
 }
 
 body.dark-theme .menu-category {
-    background-color: #f8e92a;
+    background-color: #2c2c2c;
     border: 1px solid #f9cb15;
 }
 
 body.dark-theme .menu-item {
-    background-color: #ffffff;
-    border: 1px solid #f9cb15;
+    background-color: #3d3d3d;
+    border: 1px solid #f8e92a;
+    color: #f8e92a;
+}
+
+body.dark-theme .menu-item:hover {
+    background-color: #f9cb15;
+    color: #2c2c2c;
+}
+
+body.dark-theme .menu-item:hover .item-name,
+body.dark-theme .menu-item:hover .item-price {
+    color: #2c2c2c;
 }
 
 body.dark-theme .menu-item:hover {
@@ -458,6 +469,7 @@ section {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         padding: 2rem 0;
+        border: 1px solid #f9cb15;
     }
     
     .nav-menu.active {
