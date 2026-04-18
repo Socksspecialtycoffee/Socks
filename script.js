@@ -42,13 +42,19 @@ function setLanguage(lang) {
         html.setAttribute('dir', 'ltr');
         html.setAttribute('lang', 'en');
         elements.forEach(el => {
-            el.textContent = el.getAttribute('data-en');
+            const englishText = el.getAttribute('data-en');
+            if (englishText && englishText.trim()) {
+                el.textContent = englishText;
+            }
         });
     } else {
         html.setAttribute('dir', 'rtl');
         html.setAttribute('lang', 'ar');
         elements.forEach(el => {
-            el.textContent = el.getAttribute('data-ar');
+            const arabicText = el.getAttribute('data-ar');
+            if (arabicText && arabicText.trim()) {
+                el.textContent = arabicText;
+            }
         });
     }
 }
